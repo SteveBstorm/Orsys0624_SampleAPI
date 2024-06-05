@@ -20,6 +20,8 @@ builder.Services.AddSingleton<MovieService>();
 builder.Services.AddScoped<TokenManager>();
 builder.Services.AddScoped<UserService>();
 
+builder.Services.AddSingleton<MovieHub>();
+
 #region Authentification
 /*using Microsoft.AspNetCore.Authentication.JwtBearer;*/
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
@@ -69,5 +71,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapHub<ChatHub>("chathub");
+app.MapHub<MovieHub>("moviehub");
 
 app.Run();
