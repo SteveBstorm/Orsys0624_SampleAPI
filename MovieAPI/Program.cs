@@ -45,7 +45,7 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddCors(o => o.AddPolicy("myPolicy", options =>
 /*NE PAS METTRE LE DERNIER /  */
-    options.WithOrigins("https://localhost:7085")
+    options.WithOrigins("http://localhost:5218")
             .AllowCredentials()
             .AllowAnyHeader()
             .AllowAnyMethod()
@@ -69,5 +69,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapHub<ChatHub>("chathub");
+app.MapHub<MovieHub>("moviehub");
 
 app.Run();
